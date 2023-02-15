@@ -3,6 +3,10 @@ import  speech_recognition as sp
 from selenium_web import infow
 from Yt_auto import music
 from News import *
+from getJokes import  *
+from weather import  *
+import datetime
+import  randfacts
 engine = pts.init()
 rate = engine.getProperty('rate')
 engine.setProperty('rate',180)
@@ -12,9 +16,24 @@ engine.setProperty('voices',voices[0].id)
 def speack(text):
     engine.say(text)
     engine.runAndWait()
-speack("hello there. my name is nova. and i am your voice assistant")
+def sayHi():
+    hour = int(datetime.datetime.now().hour)
+    if hour >0 and hour <12:
+        return 'morning'
+    if hour>=12 and hour<16:
+        return 'afternoon'
+    else:
+        return 'evening'
+
+today=datetime.datetime.now()
 
 r = sp.Recognizer()
+speack("hello there.Good "+sayHi()+" my name is nova. and i am your voice assistant")
+speack("Today is "+today.strftime("%d")+  "of "+today.strftime('%B') +" and its currently "+today.strftime("%I") +today.strftime("%M") + today.strftime("%p") )
+# %d = day of month 1-->31 ---------- %B = Month name with full version December %b -->small version
+speack("Temperature in your city is" +str(temp())+" degree with "+str(des()))
+
+speack("what can I do for you?")
 with sp.Microphone() as source:
     r.energy_threshold=10000
     r.adjust_for_ambient_noise(source,1.2)
@@ -65,3 +84,18 @@ elif 'News' in text2 :
         print(arr[i])
         speack(arr[i])
 
+elif 'fact' or 'facts' in text2 :
+    speack('Sure ,give me one second ')
+    fact= randfacts.getFact()
+    print(fact)
+    print(fact)
+    speack('Did you know that ,'+fact)
+
+elif 'joke' or 'jokes' in text2:
+    speack('Sure ,get ready for some chukles ')
+    arr=joke()
+    print(arr[0])
+    print(arr[0])
+    speack(arr[1])
+    speack(arr[1])
+    speack('So funny heeh')
