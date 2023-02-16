@@ -21,7 +21,7 @@ class infow():
         enter.click()
         time.sleep(100)# just make my navigator wait , probably it works without it test it first
 
-info= infow()
-info.get_info('Maroc')
+#info= infow()
+#info.get_info('Maroc')
 
 
