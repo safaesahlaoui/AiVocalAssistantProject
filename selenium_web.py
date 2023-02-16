@@ -19,7 +19,9 @@ class infow():
         search.send_keys(query)
         enter=self.driver.find_element(By.XPATH,'//*[@id="search-form"]/fieldset/button/i')
         enter.click()
+        time.sleep(100)# just make my navigator wait , probably it works without it test it first
+
+info= infow()
+info.get_info('Maroc')
 
 
-
-#time.sleep(100)
