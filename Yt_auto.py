@@ -11,7 +11,6 @@ class music():
         self.driver.get(url='https://www.youtube.com/results?search_query='+query)
         video=self.driver.find_element(By.XPATH,'//*[@id="video-title"]')
         video.click()
-
+        time.sleep(100)
 #assis= music()
 #assis.playMusic('adele')
-time.sleep(100)
