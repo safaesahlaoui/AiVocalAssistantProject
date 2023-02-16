@@ -9,7 +9,7 @@ import datetime
 import  randfacts
 engine = pts.init()
 rate = engine.getProperty('rate')
-engine.setProperty('rate',175)
+engine.setProperty('rate',170)
 voices =engine.getProperty('voices')
 engine.setProperty('voices',voices[0].id)
 
@@ -28,8 +28,8 @@ def sayHi():
 today=datetime.datetime.now()
 
 r = sp.Recognizer()
-speack("Hello Sir , Good "+sayHi()+", my name is nova , And I am your voice assistant")
-speack("Today is ,"+today.strftime("%d")+  " ,of "+today.strftime('%B') +", and its currently "+today.strftime("%I") +today.strftime("%M") + today.strftime("%p") )
+speack("Hello Sir , Good "+sayHi()+", My Name is Pixa , And I am your voice assistant")
+speack("Today is ,"+today.strftime("%d")+" ,of "+today.strftime('%B') +", and its currently "+today.strftime("%I") +today.strftime("%M") + today.strftime("%p") )
 # %d = day of month 1-->31 ---------- %B = Month name with full version December %b -->small version
 speack("Temperature in your city is , " +str(temp())+", degree with "+str(des()))
 
